@@ -1,0 +1,451 @@
+    @font-face {
+        font-family: 'GmarketSansLight';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'GmarketSansBold';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+* {
+    font-family: 'GmarketSansMedium'; margin: 0px; padding: 0px; 
+    scroll-behavior: smooth;
+    cursor: url("/images/mouse.svg") 0 0 , auto ;
+}
+ul,li{list-style: none;}
+a{color: #000; text-decoration: none;}
+
+$fontSize_big:120px;
+$fontSize_intro:50px;
+$fontSize_big_title:70px;
+$fontSize_tag_title:42px;
+$fontSize_tag:20px;
+$fontSize_title:30px;
+$fontSize_p:18px;
+$fontSize_footer:16px;
+$fontSize_scroll01:80px;
+$fontSize_scroll02:50px;
+$fontSize_name:90px;
+
+$color01:#1c1c1c;
+$color02:#fff;
+$color03:#CCE0FF;
+$color_main:#6DED6D;
+
+@mixin border {border:3px solid $color01;} 
+@mixin border-left {border-left:3px solid $color01;} 
+@mixin page_width {width: 1400px; height: 100vh; margin: 0px auto; }
+
+//원페이지스크롤css
+    html,body {display: block;margin: -11px; height: 100vh;}
+    body {overflow-x: hidden;}
+// 헤더로고
+    header {opacity: 0;transition: 0.3s;}
+    @keyframes logo_ani {100%{transform: rotate(360deg);}}
+    header h1 a img{
+        position: fixed; top: 40px; left: 40px;
+        animation: logo_ani infinite 5s linear;
+        z-index: 5;
+    }
+    header h1 a:hover .home{opacity: 1;}
+    header .home{
+        opacity: 0;
+        background: $color_main;
+        width: 100px; height: 100px;
+        line-height: 100px; text-align: center;
+        position: fixed;
+        top: 39px; left: 40px;
+        border-radius: 50px;
+        transition: 0.2s;    
+        z-index: 6;    
+    }
+//메인
+    main section, .end{ @include page_width; border: 0px solid transparent;}
+    
+
+    .h2_none{display: none;}
+//인트로
+    .intro {position: relative; overflow: hidden;}
+//내비게이션
+    .intro nav {
+        position: fixed; top: 90px; left: 0; right: 0px; 
+        margin: 0px auto; width: 1400px; z-index: 99;
+    }
+    .intro nav > div{position: absolute; top: 62px; right: 60px; font-size: $fontSize_tag; transition: .3s;}
+    .intro nav > div > img{position: absolute; top: -4px; left: -24px; z-index: -10; width: 100px;}
+    .intro nav ul{position: absolute; top: 58px; right: 0px;}
+    .intro nav ul li{ 
+        width: 30px; height: 30px; 
+        border-radius: 50%;
+        background: $color01;
+        margin-bottom: 30px;
+        font-size: $fontSize_tag;
+    }
+    //내비게이션 hover
+    .intro nav ul li:hover .menu {width: 120px; color: $color01; background: $color_main;}
+    .menu {
+        width: 0px; height: 32px;
+        padding: 0px 20px;
+        line-height: 32px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        transform: translate(-1px,-1px);
+        transition: 0.3s;
+        color: transparent;
+    }
+    .show {width: 120px; color: $color01; background: $color_main;}
+    .intro h2{
+        font-size: $fontSize_big;
+        font-family: 'GmarketSansLight'; font-weight: 700;
+        margin-top: 140px; padding-top: 15px;
+        background: $color_main; border-radius: 100px;
+        width: 980px;
+        text-align: center;
+    }
+    //왼쪽
+    .intro_left {position: absolute; top: 346px;}
+    .p1{font-size: $fontSize_scroll01; text-align: right;}
+    .intro_wrap{position: relative; top: 30px;}
+    .ib1{width: 140px;}
+    .ib2{width: 50px;}
+    .ib3{width: 230px;}
+    .intro_btn{position: relative; margin-bottom: 22px; background: $color01; font-size:$fontSize_title; padding: 6px 40px; color: $color_main; border-radius: 50px; }
+    .before{border-top: 3px solid $color01; width: 670px; height: 75px; position: relative; top: -207px; z-index: -1;}
+    .intro_btn img{width: 36px; position: absolute; top: 11px; padding-left: 10px;}
+    //오른쪽
+    .intro_right{
+        position: absolute;
+        bottom: 80px; right: 0px;
+        font-size: $fontSize_intro;
+        text-align: right;
+        line-height: 58px;
+    }
+    .tape{width: 200px; height: 50px; background: #6ded6d84; transform: translate(240px,20px) rotate(10deg);}
+    .ani_wrap{position: absolute; top: 280px; left: 272px;}
+    .ani_wrap img{position: absolute; opacity: 0;}
+
+//프로필
+    .profile{display: flex;}
+// 왼쪽wrap
+    .profile > div{
+        position: relative; left: 0px;
+        border-right: 3px solid $color01;
+        width: 49%;
+    }
+    .show1 {width: 100%; height: 100vh; background:$color02; position: absolute; z-index: 1;}
+//제목
+    .profile_title{font-size: $fontSize_big_title; font-weight: 100; padding-top: 150px; line-height: 90px;}
+    #good{margin-bottom: 20px;}
+    #good span{position: relative; top: -2px; text-underline-offset:14px; text-decoration: underline 4px; }
+    #under {text-decoration: underline 4px; text-underline-offset:14px;}
+    #name {font-size: $fontSize_name; margin-top: 15px; display: inline-block; position: relative;}
+    #name::after{
+        content: "";
+        width:0px; height: 60px;
+        background: $color_main;
+        position: absolute;
+        top: 20px; left: 0;
+        z-index: -1;
+    }
+    #name.active::after {width: 510px;transition: 1s;}
+    #book {width: 70px; transform: translate(550px, -398px); animation: book 2s infinite;}
+// 오른쪽wrap
+    .profile > ul{
+        width: 49%; height: 100vh;
+        position: absolute;
+        right: 0px;
+        @include border-left;
+        padding: 150px 0px 0px 70px;
+        box-sizing: border-box;
+    }
+    .profile .subtitle{
+        font-family: 'GmarketSansBold';
+        font-size: $fontSize_title;
+        line-height: 26px;
+        margin-bottom: 50px;
+        position: relative;
+    }
+    .profile .subtitle ul{margin-top: 20px;}
+    .profile .subtitle ul li{font-size: $fontSize_p;}
+    .profile .subtitle > ul > li:first-child{padding-top: 10px;}
+//소개 키워드
+    .keyword{display: flex;}
+    .keyword li{ padding: 4px 25px; border:1px solid $color01; border-radius: 30px;}
+    #name2{font-size: $fontSize_title !important;}
+    .keyword li:nth-child(2){transform: translateX(-14px);}
+    .keyword li:nth-child(3){transform: translateX(-28px);}
+//스킬 호버 손 아이콘
+    #hand{ transform: rotate(10deg); position: absolute; animation: hand 1.6s infinite;}
+    @keyframes hand {
+        0%{top: -15px; left: 120px;}
+        50%{top: -25px; left: 140px;}
+        100%{top: -15px; left: 120px;}
+    }
+//스킬박스
+    .profile .skill_wrap{ display: flex; flex-wrap: wrap; width: 650px;}
+    .profile .skill_wrap li{
+        background: $color03;
+        padding: 8px 16px;
+        border-radius: 30px;
+        margin: 0px 10px 15px 0px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .profile .skill_wrap li:hover{color: rgba(251, 105, 105, 0);}//기존 텍스트 숨기기
+//hover이벤트 70%, 50% 넣기
+    .profile .skill_wrap li:after{
+        position: absolute;
+        content: "";
+        width: 0; height: 100%;
+        top: 0; right: 0;
+        z-index: -1;
+        background: $color_main;
+        transition: 0.25s;
+        
+    }
+    .profile .skill_wrap li:hover:after {left: 0; width: 100%;}
+    @mixin persentCSS{
+        padding-top: 8px;
+        text-align: right;
+        padding-right: 5%;
+        color: $color01;
+        box-sizing: border-box;
+    }
+    @mixin persent01 {content: "70%";@include persentCSS;}
+    @mixin persent02 {content: "80%";@include persentCSS;}
+    @mixin persent03 {content: "50%";@include persentCSS;}
+    .profile .skill_wrap li:first-child:hover:after,
+    .profile .skill_wrap li:nth-child(3):hover:after,
+    .profile .skill_wrap li:nth-child(4):hover:after,
+    .profile .skill_wrap li:nth-child(5):hover:after,
+    .profile .skill_wrap li:nth-child(6):hover:after{
+        width: 70%;
+        @include persent01;
+    }
+    .profile .skill_wrap li:nth-child(2):hover:after{
+        width: 80%;
+        @include persent02;
+    }
+    .profile .skill_wrap li:nth-child(7):hover:after,
+    .profile .skill_wrap li:nth-child(8):hover:after,
+    .profile .skill_wrap li:nth-child(9):hover:after{
+        width: 50%;
+        @include persent03;
+    }
+// 프로젝트
+    .project{position: relative;}
+    //프로젝트 슬라이드 전체!!
+    .slide{height: 100vh;}
+    //프로젝트 왼쪽
+    .list_intro{position: absolute;margin: 0px 0px 0px 0px;}
+    .pro_ani{position: absolute;top: 100px;}
+    .pro_ani .img02{margin-top: -40px;}
+    .pro_circle{
+        position: absolute;
+        top: 0px;
+        width: 90px; height: 90px;
+        border-radius: 50%;
+        background: $color_main;
+        offset-path: path("M646 59c0 3-2 6-6 10s-10 7-18 11c-17 7-40 13-69 18-59 11-140 18-229 18s-170-7-229-18c-29-5-52-11-69-18-8-4-14-7-18-11s-5-7-5-10 1-6 5-10 10-7 18-11c17-7 40-13 69-18C154 9 235 3 324 3s170 6 229 17c29 5 52 11 69 18 8 4 14 7 18 11s6 7 6 10Z");
+        animation: moveto infinite linear 7s ;
+    }
+    @keyframes moveto{100%{offset-distance: 100%;}}
+    .list_intro h3 {font-size: $fontSize_big_title; font-weight: 100; line-height: 70px; transform: translate(580px, 250px);}
+    .list_intro p {font-size: $fontSize_p; padding: 470px 0px; line-height: 30px;}
+    #tri{
+        width: 0; height: 0;
+        border-bottom: 70px solid $color_main;
+        border-left: 70px solid transparent;
+        position: absolute;
+        top: 736px; left: 850px;
+    }
+    //프로젝트 리스트4개 wrap !!
+    .list_wrap{
+        display: flex;
+        width: 20%;
+        position: absolute;
+        right: 0;
+        margin-left: -1448px;
+    }
+    .list{        
+        width: 20%; height: 100vh;
+        position: relative; //span부모
+        @include border-left;
+        left: 0;
+    }
+    // 리스트 span 
+    .list_tag{
+        width: 120px; height: 80px;
+        line-height: 120px;
+        text-align: center;
+        font-size: $fontSize_tag;
+        @include border;
+        background: #6DED6D;
+        //태그위치
+        transform: rotate(90deg);
+        position: absolute;
+        left: -106px; top: 700px;
+        transition: 0.3s;
+    }
+    .list_tag:hover{background: $color01;color: $color_main;}//hover css
+    .on_tag{background: $color01;color: $color_main;}//page css
+    .jeju{top: 550px;}
+    .guess{top: 500px;}
+    .kartell{top: 600px;}
+//슬라이드제이쿼리
+    .expanded{width: 100%;}
+    //프로젝트내용
+    .list dd{
+        width: 1400px;
+        padding: 200px 100px;
+        box-sizing: border-box;
+        background: $color02;
+        line-height: 24px;
+    }
+    .list dd h4{font-size: $fontSize_tag_title !important; margin-bottom: 20px;}
+    .list_con {width: 980px; padding-top: 30px; transform: translateX(-20px); display: flex; justify-content: space-between;}
+    .list_right {margin-top: 64px; line-height: 30px;}
+    //툴 wrap
+    .tool_wrap{display: flex; margin: 10px 0px 30px 0px;}
+    .tool_wrap li {
+        width: 80px; height: 80px;
+        background: $color03; border-radius: 20px;
+        margin-right: 10px;
+        line-height: 80px; text-align: center; font-weight: 700;
+    }
+    @mixin button {
+        display: block; height: 60px;
+        background: $color01; color: $color02;
+        text-align: center; line-height: 60px;
+        border-radius: 30px; margin: 10px 0px; transition: 0.3s;
+
+    }
+    .p_btn{width: 266px; @include button;}
+    .p_btn2{width:128px; @include button;}
+    .m_btn{transform: translate(138px, -70px);}
+    //기획서모달창
+    .modal {
+        display: none; background: rgba(0, 0, 0, 0.8); 
+        width: 100%; height: 100vh; position: fixed; top: 0; left: 0; z-index: 99; overflow-y: auto; 
+    }
+    .plan_img{margin: 0px auto; transform: scale(1); display: block;}
+    .p_btn:hover, .p_btn2:hover{background: $color_main; color: $color01;}
+    // 프로젝트 리스트 오른쪽만 hidden
+    .hidden{
+        width: 1400px; height: 100vh; background: $color02;
+        position: absolute; top: 0; left: 1400px; z-index: 9;
+    }
+//uiux디자인 (실시간검색순위)
+    .uiux{overflow: hidden;}
+    .lineBox1{
+        position: absolute; border-right: 3px solid $color01;
+        width: 1297px; height: 100vh;
+    }
+    .lineBox2{
+        position: absolute; border-right: 3px solid $color01;
+        width: 1260px; height: 100vh;
+    }
+    //타이틀
+    .uiux{position: relative;}
+    .uiux_title{
+        font-size: $fontSize_big_title; font-weight: 100;
+        position: absolute; top: 130px; right: 180px;
+        text-align: right;
+    }
+    .uiux_title::after{
+        content: ""; width: 636px; height: 95px; background: $color_main;
+        position: absolute; top: 40px; right: 0; z-index: -1;
+    }
+    //순위롤 
+    .box{position: relative;}
+    .boxIn { margin-top: 330px; position: relative; left: -100px;}
+    //순위 제목
+    .boxIn li {width: 50%; font-size: $fontSize_scroll02; text-align: center;}
+    .boxIn > li:nth-child(3){
+        font-size: $fontSize_scroll01;
+        //글자 테두리
+        -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: $color01; color: transparent;
+    }
+    //카드 wrap
+    .uiux01{ position: absolute; right: 80px; top: -10px; width: 636px;}
+    .uiux01 img {
+        position: relative;
+        transition: transform 0.5s; border-radius: 20px; width: 100%;
+    }
+    .flipped2{transform: translateZ(-50px) rotateY(180deg);}//이미지 뒤로이동,회전
+    .card {
+        position: absolute; top: 0; left: 0;
+        font-size: $fontSize_p; font-weight: 100;
+        width: 100%; height: 93%;
+        border-radius: 20px; background: $color_main;
+        padding: 130px 50px; box-sizing: border-box;
+        font-family: 'GmarketSansLight';
+        backface-visibility: hidden;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+        transform: rotateY(180deg); //카드 뒤집힌 상태
+    }
+    .card.flipped {transform: rotateY(0deg);}//카드 다시 앞면
+    .card a {
+        display: block; width: 100px; height: 100px;
+        line-height: 100px; border-radius: 50%;
+        color: $color02; background: $color01 ;
+        font-family: 'GmarketSansLight';
+        transition: 0.2s;
+        position: absolute; bottom: 20px; right: 20px;
+    }
+    .card a:hover{background: $color02; color: $color01;}
+//푸터
+    .end{position: relative;}
+    .end h3 img {width: 100px; position: absolute; top: 42px; right: 410px;}
+    .end h3{
+        font-size: $fontSize_big_title; font-weight: 100;
+        position: absolute; top: 390px;
+        line-height: 80px;
+    }
+    .end address{
+        font-size: $fontSize_footer; font-style: normal;
+        line-height: 20px;
+        position: absolute; bottom: 100px;
+    }
+    .end div{
+        width: 333px; 
+        position: absolute; top: 176px; right: 140px;
+    }
+    .end div > p{font-size: $fontSize_intro; letter-spacing: -2px;}
+    .end div > img{margin-bottom: 20px;}
+    .sns_wrap{
+        width: 333px;
+        display: flex; justify-content: space-around;
+        position: absolute; top: 470px; right: 0px;
+    }
+    .sns_wrap img:hover{animation: sns 1s;}
+    @keyframes sns {
+        0%{transform: rotate(20deg);}
+        20%{transform: rotate(-20deg);}
+        40%{transform: rotate(10deg);}
+        60%{transform: rotate(-10deg);}
+        100%{transform: rotate(0deg);}
+    }
+    .sns_txt{position: relative;}
+    .txt{
+        display: none;
+        position: absolute; top: -10px; left: 0;
+        border: 1px solid $color01;
+        width: 333px; height: 50px;
+        line-height: 50px; border-radius: 10px;
+        text-align: center; background: $color02;
+    }
+
+
+
