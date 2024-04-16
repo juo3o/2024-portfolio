@@ -314,7 +314,7 @@ $color_main:#6DED6D;
     }
     .list dd h4{font-size: $fontSize_tag_title !important; margin-bottom: 20px;}
     .list_con {width: 980px; padding-top: 30px; transform: translateX(-20px); display: flex; justify-content: space-between;}
-    .list_right {margin-top: 64px; line-height: 30px;}
+    .list_right {margin-top: 64px; line-height: 30px; }
     //툴 wrap
     .tool_wrap{display: flex; margin: 10px 0px 30px 0px;}
     .tool_wrap li {
@@ -335,7 +335,7 @@ $color_main:#6DED6D;
     .m_btn{transform: translate(138px, -70px);}
     //기획서모달창
     .modal {
-        display: none; background: rgba(0, 0, 0, 0.8); 
+        display: block; background: rgba(0, 0, 0, 0.8); 
         width: 100%; height: 100vh; position: fixed; top: 0; left: 0; z-index: 99; overflow-y: auto; 
     }
     .plan_img{margin: 0px auto; transform: scale(1); display: block;}

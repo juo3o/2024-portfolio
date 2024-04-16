@@ -123,15 +123,62 @@ $(document).ready(function(){
 
     //기획서 버튼 클릭시 모달창
 
-        $('.plan_btn').click(function(event){
+        $('.plan_btn1').click(function(event){
             event.preventDefault();
-            $(this).siblings(".modal").css("display", "block");
+            const modal1 = `
+                <div class="modal">
+                    <img src="./images/plan_chaum.png" alt="" class="plan_img">
+                </div>;`
+            $('body').append(modal1);
+            $('.modal').on('wheel', function(e){
+                e.stopPropagation(); // 모달 내에서 페이지 스크롤
+            });
+            $('.modal').click(function(){
+                $(this).css('display','none');
+            });
         });
-        $('.modal').on('wheel', function(e){
-            e.stopPropagation(); // 모달 내에서 페이지 스크롤
+        $('.plan_btn2').click(function(event){
+            event.preventDefault();
+            const modal1 = `
+            <div class="modal">
+                <img src="./images/plan_jeju.png" alt="" class="plan_img">
+            </div>
+            `
+            $('body').append(modal1);
+            $('.modal').on('wheel', function(e){
+                e.stopPropagation(); // 모달 내에서 페이지 스크롤
+            });
+            $('.modal').click(function(){
+                $(this).css('display','none');
+            });
         });
-        $('.modal').click(function(){
-            $(this).css('display','none');
+        $('.plan_btn3').click(function(event){
+            event.preventDefault();
+            const modal1 = `
+            <div class="modal">
+                <img src="./images/plan_guess.png" alt="" class="plan_img">
+            </div>`
+            $('body').append(modal1);
+            $('.modal').on('wheel', function(e){
+                e.stopPropagation(); // 모달 내에서 페이지 스크롤
+            });
+            $('.modal').click(function(){
+                $(this).css('display','none');
+            });
+        });
+        $('.plan_btn4').click(function(event){
+            event.preventDefault();
+            const modal1 = `
+            <div class="modal">
+                <img src="./images/plan_kartell.png" alt="" class="plan_img">
+            </div>`
+            $('body').append(modal1);
+            $('.modal').on('wheel', function(e){
+                e.stopPropagation(); // 모달 내에서 페이지 스크롤
+            });
+            $('.modal').click(function(){
+                $(this).css('display','none');
+            });
         });
 
     //푸터 sns hover
